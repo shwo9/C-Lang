@@ -1,0 +1,40 @@
+#include<stdio.h>
+#include<math.h>
+
+main()
+{
+	int a;
+	printf("Reverse Number : ");
+	scanf_s("%d", &a);
+	printf("%d는 %d자리 수 \n",a,	leng(a));
+	printf("%d의 거꾸로는 %d\n", a, rev(a));
+	system("pause");
+}
+
+int leng(int n)
+{
+	int i=1;
+	int length=1;
+
+	while ((n / (10 * i)) != 0)
+	{
+		++length;
+		i = i * 10;
+	}
+	return length;
+}
+
+int rev(int n)
+{
+	int i = 1;
+	int len = leng(n);
+	int sum = 0;
+	int j;
+	while (i <= len)
+	{
+		sum = sum + (n % 10)*pow(10,leng(n)-1);
+		n = n / 10;
+		i++;
+	}
+	return sum;
+}
