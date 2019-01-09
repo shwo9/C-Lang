@@ -1,0 +1,33 @@
+//CMD 경로 이동
+cd C:\Program Files (x86)\Bitcoin
+
+cd C:\Program Files (x86)\Bitcoin\daemon
+
+//비트코인 코어 실행하기
+bitcoin-qt.exe -regtest
+//외부 접속시 127.0.0.1 수정 , 18444 포트개방
+bitcoin-qt.exe -regtest -printtoconsole -datadir="C:\Users\Administrator\Desktop\Bitcoin\TestNet2" -connect=127.0.0.1:18444 -rpcport=30303
+
+//서버구동
+bitcoind.exe -regtest -printtoconsole -datadir="C:\Users\Administrator\Desktop\Bitcoin\TestNet"
+//블록 생성
+bitcoin-cli.exe -regtest -rpcpassword=1234 generate 1
+//잔액 확인
+bitcoin-cli.exe -regtest -rpcpassword=1234 getbalance
+bitcoin-cli.exe -regtest -rpcpassword=1234 getblockchaininfo
+//노드추가
+bitcoind.exe -regtest -printtoconsole -datadir="C:\Users\Administrator\Desktop\Bitcoin\TestNet2" -connect=127.0.0.1:18444 -rpcport=30303
+//네트워크 정보
+bitcoin-cli.exe -regtest -rpcpassword=1234 -rpcport=30303 getblockchaininfo
+
+bitcoin-cli.exe -regtest -rpcpassword=1234 -rpcport=30303 generate 1
+//주소생성
+bitcoin-cli.exe -regtest -rpcpassword=1234 -rpcport=30303 getnewaddress
+bitcoin-cli.exe -regtest -rpcpassword=1234 -rpcport=30303 getbalance
+//코인 송금
+bitcoin-cli.exe -regtest -rpcpassword=1234 sendtoaddress 2NCxicCyGgm7kAnDBWY5NSZmYxXZ9EVRMAo
+//트랜젝션 정보
+bitcoin-cli.exe -regtest -rpcpassword=1234 gettransaction 
+
+//UTXO 확인하기
+bitcoin-cli.exe -regtest -rpcpassword=1234 -rpcport=30303 listunspent
