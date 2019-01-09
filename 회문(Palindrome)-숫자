@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+void reverse(int n)
+{
+	int saveN, originN, reverseN=0;
+	originN = n;
+
+	while (n != 0)
+	{
+		saveN = n % 10;
+		reverseN = reverseN * 10 + saveN;
+		n = n / 10;
+	}
+
+	if (originN == reverseN)
+	{
+		printf("Palindrome!\n");
+	}
+	else
+		printf("Not Palindrome...\n");
+}
+
+int main()
+{
+	int n;
+	printf("Number? : ");
+	scanf_s("%d", &n);
+
+	reverse(n);
+	system("pause");
+}
