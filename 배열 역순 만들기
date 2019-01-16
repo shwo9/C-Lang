@@ -1,0 +1,27 @@
+#include <stdio.h>
+int main() {
+
+	int arr[6] = { 1,2,3,4,5,6 };
+	// arr 거꾸로 배열
+	int temp;
+	// 배열의 앞과 뒤를 가리키는 포인터 변수 두개를 선언해서 활용
+	int *ptr_a, *ptr_b;
+	ptr_a = &arr[0];
+	ptr_b = &arr[5];
+	int i;
+
+	for (i = 0; i <= 3; i++)
+	{
+		
+		temp = arr[i];
+		*(ptr_a + i) = *(ptr_b - i);
+		*(ptr_b - i) = temp;
+	}
+	
+	for (i = 0; i <= 5; i ++ )
+		printf("%d", arr[i]);
+
+	system("pause");
+}
+
+//열혈 C 문제 13-4
