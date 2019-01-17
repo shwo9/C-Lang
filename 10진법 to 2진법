@@ -1,0 +1,36 @@
+#include <stdio.h>
+main()
+{
+
+	int sip;
+	printf("숫자 입력 : ");
+	scanf_s("%d", &sip);
+	int Nsip = sip;
+	int arr[100] = {0};
+	int i;
+	int count=0;
+	int Ncount = 0;
+
+	for (i = 1; sip >= 1; i++)
+	{
+		sip = sip / 2;
+		count++;
+	}
+
+	Ncount = count;
+	for (i = 1; count >= 1; i++)
+	{
+		arr[count-1] = Nsip % 2;
+		Nsip = Nsip / 2;
+		count--;
+	}
+
+	for (i = 0; i <= Ncount-1; i++)
+	{
+		printf("%d ", arr[i]);
+	}
+	printf("\n");
+	
+
+	system("pause");
+}
